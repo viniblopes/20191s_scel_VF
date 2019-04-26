@@ -61,11 +61,25 @@ public class UC01CadastrarLivro {
 			umLivro.setAutor("Pressman");
 		} catch (RuntimeException e) {
 			// verificacao
-			fail("nao deve falhar");
+			assertEquals("titulo invalido", e.getMessage());
 		}
 	}
 	@Test
-	public void CT05CadastrarComAutorInvalido() {
+	public void CT05CadastrarComTituloInvalido() {
+		try {
+			// cenario
+			Livro umLivro = new Livro();
+			// acao
+			umLivro.setIsbn("111231");
+			umLivro.setTitulo("");
+			umLivro.setAutor("Pressman");
+		} catch (RuntimeException e) {
+			// verificacao
+			assertEquals("titulo invalido", e.getMessage());
+		}
+	}
+	@Test
+	public void CT06CadastrarComAutorInvalido() {
 		try {
 			// cenario
 			Livro umLivro = new Livro();
@@ -75,7 +89,21 @@ public class UC01CadastrarLivro {
 			umLivro.setAutor(null);
 		} catch (RuntimeException e) {
 			// verificacao
-			fail("nao deve falhar");
+			assertEquals("autor invalido", e.getMessage());
+		}
+	}
+	@Test
+	public void CT07CadastrarComAutorInvalido() {
+		try {
+			// cenario
+			Livro umLivro = new Livro();
+			// acao
+			umLivro.setIsbn("111231");
+			umLivro.setTitulo("Engenharia de Software");
+			umLivro.setAutor("");
+		} catch (RuntimeException e) {
+			// verificacao
+			assertEquals("autor invalido", e.getMessage());
 		}
 	}
 }

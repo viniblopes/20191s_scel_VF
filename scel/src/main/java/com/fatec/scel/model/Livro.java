@@ -22,7 +22,7 @@ public class Livro {
 
 	public void setTitulo(String titulo) {
 		if (titulo == "" | titulo == null) {
-			throw new RuntimeException("ISBN invalido");
+			throw new RuntimeException("titulo invalido");
 		}
 		this.titulo = titulo;
 	}
@@ -32,6 +32,9 @@ public class Livro {
 	}
 
 	public void setAutor(String autor) {
+		if (autor == "" | autor == null) {
+			throw new RuntimeException("autor invalido");
+		}
 		this.autor = autor;
 	}
 }
