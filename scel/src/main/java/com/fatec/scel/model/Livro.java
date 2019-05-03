@@ -1,6 +1,13 @@
 package com.fatec.scel.model;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity(name = "Livro")
 public class Livro {
+	
+	@Id
 	private String isbn;
 	private String titulo;
 	private String autor;
